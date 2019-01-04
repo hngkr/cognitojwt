@@ -1,4 +1,4 @@
-from .async import decode_async
+from .asyncs import decode_async
 from .cognito import decode
 from .exceptions import CognitoJWTException
 
