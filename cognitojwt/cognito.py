@@ -32,7 +32,7 @@ def get_public_key(token: str, region: str, userpool_id: str):
     return jwk.construct(key)
 
 
-def decode(token: str, region: str, userpool_id: str, app_client_id: str, testmode=False) -> dict:
+def decode(token: str, region: str, userpool_id: str, app_client_id: str, testmode=False, testaud=False) -> dict:
     message, encoded_signature = str(token).rsplit('.', 1)
 
     decoded_signature = base64url_decode(encoded_signature.encode('utf-8'))
@@ -44,6 +44,7 @@ def decode(token: str, region: str, userpool_id: str, app_client_id: str, testmo
 
     claims = get_unverified_claims(token)
     check_expired(claims['exp'], testmode=testmode)
-    check_aud(claims['aud'], app_client_id)
+    if testaud:
+        check_aud(claims['aud'], app_client_id)
 
     return claims
