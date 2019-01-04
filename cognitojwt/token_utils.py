@@ -4,6 +4,7 @@ from jose import jwt
 
 from .exceptions import CognitoJWTException
 
+PUBLIC_KEYS_URL_TEMPLATE = 'https://cognito-idp.{}.amazonaws.com/{}/.well-known/jwks.json'
 
 def get_unverified_headers(token: str) -> dict:
     return jwt.get_unverified_headers(token)

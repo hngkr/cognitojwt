@@ -5,9 +5,8 @@ import requests
 from jose import jwk
 from jose.utils import base64url_decode
 
-from . import PUBLIC_KEYS_URL_TEMPLATE
 from .exceptions import CognitoJWTException
-from .token_utils import get_unverified_claims, get_unverified_headers, check_expired, check_aud
+from .token_utils import get_unverified_claims, get_unverified_headers, check_expired, check_aud, PUBLIC_KEYS_URL_TEMPLATE
 
 
 @lru_cache(maxsize=1)

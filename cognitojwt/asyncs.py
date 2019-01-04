@@ -5,9 +5,8 @@ from async_lru import alru_cache
 from jose import jwk
 from jose.utils import base64url_decode
 
-from . import PUBLIC_KEYS_URL_TEMPLATE
 from .exceptions import CognitoJWTException
-from .token_utils import get_unverified_headers, get_unverified_claims, check_expired, check_aud
+from .token_utils import get_unverified_headers, get_unverified_claims, check_expired, check_aud, PUBLIC_KEYS_URL_TEMPLATE
 
 
 @alru_cache(maxsize=1)
